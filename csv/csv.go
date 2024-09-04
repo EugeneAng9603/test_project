@@ -6,12 +6,12 @@ import (
 )
 
 type CSVFileSaver struct {
-	file   *os.File
-	writer *csv.Writer
+	File   *os.File
+	Writer *csv.Writer
 }
 
 func (s *CSVFileSaver) Save(data string) error {
-	return s.writer.Write([]string{data})
+	return s.Writer.Write([]string{data})
 }
 
 func NewCSVFileSaver(filePath string) (*CSVFileSaver, error) {
@@ -20,5 +20,5 @@ func NewCSVFileSaver(filePath string) (*CSVFileSaver, error) {
 		return nil, err
 	}
 	writer := csv.NewWriter(file)
-	return &CSVFileSaver{file: file, writer: writer}, nil
+	return &CSVFileSaver{File: file, Writer: writer}, nil
 }

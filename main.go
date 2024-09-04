@@ -42,7 +42,7 @@ func main() {
 		fmt.Println("CSV file error:", err)
 		return
 	}
-	defer csvSaver.file.Close()
-	defer csvSaver.writer.Flush()
+	defer csvSaver.File.Close()
+	defer csvSaver.Writer.Flush()
 	saveData(csvSaver, "example data")
 }
